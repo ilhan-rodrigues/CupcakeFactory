@@ -3,6 +3,7 @@ package org.example;
 import org.example.model.*;
 import org.example.service.Commande;
 import org.example.service.Menu;
+import org.example.service.HistoriqueVentes;
 import org.example.stock.Stock;
 
 import java.util.List;
@@ -40,6 +41,8 @@ public class Main {
             System.out.println("- " + ing.getNom() + " (" + stock.getQuantite(ing) + ")");
         }
 
+        HistoriqueVentes historique = new HistoriqueVentes();
+
         // Simuler une commande
         Commande commande = new Commande();
         commande.ajouter(cupcakeDuJour);
@@ -56,8 +59,11 @@ public class Main {
             double total = commande.calculerTotalAvecPromotions(menu.getCupcakesDuJourDisponibles());
             System.out.println("\nCommande validée !");
             System.out.printf("Total à payer : %.2f€%n", total);
+            historique.enregistrerVente(total);
         } else {
             System.out.println("\nCommande refusée : stock insuffisant.");
         }
+
+        System.out.printf("Chiffre d'affaires total : %.2f€%n", historique.getTotal());
     }
 }

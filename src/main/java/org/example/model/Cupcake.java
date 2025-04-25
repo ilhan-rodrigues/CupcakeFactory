@@ -45,4 +45,17 @@ public class Cupcake {
 
         return total + prixToppings - moinsCher;
     }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Cupcake(")
+                .append("Base: ").append(base.getNom())
+                .append(", Crème: ").append(creme.getNom())
+                .append(", Toppings: ");
+        for (Topping t : toppings) {
+            sb.append(t.getNom()).append(" ");
+        }
+        sb.append(")");
+        return sb.toString();
+    }
 }

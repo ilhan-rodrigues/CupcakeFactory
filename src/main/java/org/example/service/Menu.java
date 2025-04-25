@@ -27,7 +27,7 @@ public class Menu {
         return stockCupcakesDuJour.getOrDefault(cupcake, 0) > 0;
     }
 
-    public List<Cupcake> getCupcakesDuJourDiposponibles() {
+    public List<Cupcake> getCupcakesDuJourDisponibles() {
         List<Cupcake> dispo = new ArrayList<>();
         for (Cupcake cupcake : cupcakesDuJour) {
             if (estDisponible(cupcake)) {
@@ -35,6 +35,10 @@ public class Menu {
             }
         }
         return dispo;
+    }
+
+    public Map<Cupcake, Integer> getStockCupcakesDuJour() {
+        return stockCupcakesDuJour;
     }
 
     public List<Ingredient> getIngredientsDisponibles() {

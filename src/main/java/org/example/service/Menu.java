@@ -39,7 +39,7 @@ public class Menu {
 
     public List<Ingredient> getIngredientsDisponibles() {
         List<Ingredient> disponibles = new ArrayList<>();
-        for (Ingredient ing : stock.getIngredients()) {
+        for (Ingredient ing : stock.getAllIngredients()) {
             if (stock.estDisponible(ing)) {
                 disponibles.add(ing);
             }
@@ -47,6 +47,9 @@ public class Menu {
         return disponibles;
     }
 
-
-
+    public boolean peutFabriquer(Cupcake cupcake) {
+        return stock.estDisponible(cupcake.getBase()) &&
+                stock.estDisponible(cupcake.getCreme()) &&
+                cupcake.getToppings().stream().allMatch(stock::estDisponible);
+    }
 }

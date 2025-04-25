@@ -4,6 +4,8 @@ import org.example.model.Ingredient;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Stock {
     private final Map<Ingredient, Integer> ingredients = new HashMap<>();
@@ -29,5 +31,9 @@ public class Stock {
 
     public int getQuantite(Ingredient ingredient) {
         return ingredients.getOrDefault(ingredient, 0);
+    }
+
+    public List<Ingredient> getAllIngredients() {
+        return new ArrayList<>(ingredients.keySet());
     }
 }

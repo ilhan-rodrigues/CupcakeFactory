@@ -16,6 +16,18 @@ public class Cupcake {
         this.toppings = toppings;
     }
 
+    public Base getBase() {
+        return base;
+    }
+
+    public Creme getCreme() {
+        return creme;
+    }
+
+    public List<Topping> getToppings() {
+        return toppings;
+    }
+
     public double getPrix() {
         double total = base.getPrix() + creme.getPrix();
         if (toppings.isEmpty()) return total;

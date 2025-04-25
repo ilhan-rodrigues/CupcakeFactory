@@ -30,5 +30,4 @@ public class Stock {
     public int getQuantite(Ingredient ingredient) {
         return ingredients.getOrDefault(ingredient, 0);
     }
-
 }
